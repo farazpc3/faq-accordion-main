@@ -1,0 +1,193 @@
+@font-face {
+  font-family: "work-sans";
+  src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("./assets/fonts/WorkSans-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer reset, base, layout, components;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  *:not(dialog) {
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+}
+
+@layer base {
+  :root {
+    --white: hsl(0, 100%, 100%);
+    --purple-100: hsl(275, 100%, 97%);
+    --purple-600: hsl(292, 16%, 49%);
+    --purple-950: hsl(292, 42%, 14%);
+  }
+
+  html {
+    font-family: "work-sans", sans-serif;
+    font-weight: 400;
+    font-size: 0.7rem;
+  }
+
+  body {
+    background-color: var(--purple-100);
+    background-image: url("./assets/images/background-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: var(--purple-100);
+    background-attachment: scroll;
+    background-position: top center;
+  }
+
+  main {
+    background-color: var(--white);
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 0.5em 0;
+  }
+
+  h2 {
+    font-weight: 600;
+    margin-right: 2em;
+    text-wrap-style: pretty;
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--purple-600);
+  }
+
+  summary img {
+    cursor: pointer;
+  }
+
+  summary {
+    border-radius: 1em;
+  }
+  summary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 1em yellow;
+  }
+  @media (min-width: 1440px) {
+    body {
+      background-image: url("./assets/images/background-pattern-desktop.svg");
+    }
+  }
+}
+
+@layer layout {
+  body {
+    min-height: 100dvh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  main {
+    border-radius: 1em;
+    padding: 3em;
+    overflow: hidden;
+    width: 35em;
+    height: fit-content;
+    justify-self: center;
+    align-self: center;
+  }
+  header {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  footer {
+    justify-self: center;
+    position: absolute;
+    bottom: 1em;
+  }
+  article {
+    display: flex;
+    flex-direction: column;
+  }
+  summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  hr {
+    color: rgb(31, 31, 31);
+    border-radius: 50%;
+    margin: 1em 2em;
+  }
+}
